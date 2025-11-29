@@ -1,5 +1,112 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
-<head><meta charset="utf-8"><title>Suandika & Resa</title></head>
-<body><h1>Undangan Suandika & Resa</h1><p>Kode lengkap sesuai versi final telah diterapkan.</p></body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan Suandika & Resa</title>
+
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <audio id="myAudio" loop>
+        <source src="assets/janji_suci.mp3" type="audio/mpeg"> 
+    </audio>
+    <script>
+        function openUndangan() {
+            document.getElementById('myAudio').play().catch(e => console.log("Audio play prevented: ", e)); 
+            document.getElementById('intro').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('cover').style.display = 'none'; // Sembunyikan cover
+        }
+    </script>
+
+
+    <div class="undangan-container">
+        <section id="cover" class="section-full">
+            <p style="font-size: 1.2em;">The Wedding of</p>
+            <h1>SUANDIKA & RESA</h1>
+            <p style="font-size: 1.1em; margin-bottom: 40px;">Minggu, 07 Desember 2025</p>
+            
+            <button onclick="openUndangan()">
+                Buka Undangan
+            </button>
+            <p style="margin-top: 20px; font-size: 0.9em;">Kepada Yth. Tamu Undangan</p>
+        </section>
+
+        <section id="intro" class="section-content">
+            <h2>Bismillahirrahmannirrahiim</h2>
+            <p class="quote">
+                "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."
+                <br>
+                <small>(Q.S. Ar-Rum: 21)</small>
+            </p>
+            <p>Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu.</p>
+        </section>
+
+        <section id="mempelai" class="section-content">
+            <h2>Mempelai yang Berbahagia</h2>
+            <div class="pasangan">
+                <h3>SUANDIKA SUDIRO</h3>
+                <p>Putra dari Bapak [Nama Ayah Pria] dan Ibu [Nama Ibu Pria]</p>
+            </div>
+            <p class="separator">&</p>
+            <div class="pasangan">
+                <h3>RESA RISTIANI</h3>
+                <p>Putri dari Bapak [Nama Ayah Wanita] dan Ibu [Nama Ibu Wanita]</p>
+            </div>
+             <p style="font-size: 0.8em; color: #888;">*(Silakan lengkapi nama orang tua)*</p>
+        </section>
+
+        <section id="acara" class="section-content">
+            <h2>IKRAR AKAD NIKAH</h2>
+            <div class="info-box">
+                <p style="font-size: 1.2em; font-weight: bold;">Minggu, 07 Desember 2025</p>
+                <p>Pukul 11.00 WIB - Selesai</p>
+            </div>
+            <p class="lokasi" style="margin-top: 20px;">
+                Kp. Genteng RT 04/RW 04, Desa Talagasari, Kec. Banjarwangi, Kab. Garut (Dekat MTS Assalam).
+            </p>
+            <a href="https://maps.app.goo.gl/FcGhomUM6C6P1UZw6" target="_blank" class="button-map">
+                Lihat Lokasi di Google Maps
+            </a>
+            <p style="font-size: 0.8em; color: #888; margin-top: 5px;">*Pastikan link Google Maps berfungsi saat di-deploy.</p>
+        </section>
+        
+        <section id="galeri" class="section-content">
+            <h2>Galeri Foto Pre-Wedding</h2>
+            <div class="gallery-grid">
+                <img src="assets/photo1.jpg" alt="Foto Pre-Wedding 1" class="photo-item">
+                <img src="assets/photo2.jpg" alt="Foto Pre-Wedding 2" class="photo-item">
+                <img src="assets/photo3.jpg" alt="Foto Pre-Wedding 3" class="photo-item">
+                <img src="assets/photo4.jpg" alt="Foto Pre-Wedding 4" class="photo-item">
+                <img src="assets/photo5.jpg" alt="Foto Pre-Wedding 5" class="photo-item">
+                <img src="assets/photo6.jpg" alt="Foto Pre-Wedding 6" class="photo-item">
+            </div>
+            <p class="catatan-galeri">Simpan momen indah kami!</p>
+        </section>
+
+        <section id="hadiah" class="section-content">
+            <h2>Amplop Digital (Tanda Kasih)</h2>
+            <p>Doa restu Anda merupakan karunia tak ternilai. Namun, jika ingin memberikan tanda kasih:</p>
+            <div class="qr-info">
+                <img src="assets/qris.png" alt="Kode QRIS" class="qris-img"> 
+            </div>
+            
+            <p style="margin-top: 30px;">-- Atau Transfer Bank --</p>
+            <p>
+                **[Nama Bank]** <br> 
+                No. Rek. [Nomor Rekening Anda] <br>
+                a.n. [Nama Lengkap Mempelai]
+            </p>
+            <p style="font-size: 0.8em; color: #888;">*(Silakan lengkapi detail Bank)*</p>
+        </section>
+
+        <section id="penutup" class="section-content">
+            <p>Merupakan suatu kehormatan bagi kami apabila Anda berkenan hadir.</p>
+            <h3 style="color: #333;">Hormat Kami,</h3>
+            <p class="tanda-tangan">Suandika & Resa</p>
+            <p style="font-size: 0.8em; margin-top: 30px;">*Backsound Musik: Yovie and Nuno - Janji Suci</p>
+        </section>
+    </div>
+</body>
 </html>

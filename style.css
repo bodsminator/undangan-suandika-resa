@@ -1,0 +1,121 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; 
+    color: #333;
+    text-align: center;
+}
+
+.undangan-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.section-full {
+    background-color: #5D7260; 
+    color: white;
+    padding: 100px 20px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-content {
+    padding: 50px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+h1 {
+    font-family: 'Georgia', serif; 
+    font-size: 3.5em;
+    margin: 10px 0;
+    letter-spacing: 2px;
+}
+
+h2 {
+    color: #5D7260; 
+    margin-bottom: 30px;
+    border-bottom: 2px solid #5D7260;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.button-map, button {
+    background-color: #C06C84; 
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 25px;
+    transition: background-color 0.3s;
+}
+
+.button-map:hover, button:hover {
+    background-color: #A35870;
+}
+
+.quote {
+    font-style: italic;
+    margin: 20px 0;
+    line-height: 1.6;
+}
+
+.separator {
+    font-size: 2em;
+    margin: 10px 0;
+    color: #aaa;
+}
+
+.qris-img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+}
+
+.tanda-tangan {
+    font-family: 'Times New Roman', serif;
+    font-size: 1.8em;
+    margin-top: 20px;
+}
+
+/* --- CSS untuk Galeri Foto --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 kolom default */
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.photo-item {
+    width: 100%;
+    height: 150px; 
+    object-fit: cover; 
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.catatan-galeri {
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: #888;
+}
+
+/* Responsif */
+@media (min-width: 600px) {
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr 1fr; /* 3 kolom di layar lebar */
+    }
+    .photo-item {
+        height: 120px;
+    }
+}

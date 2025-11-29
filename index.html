@@ -11,100 +11,128 @@
 
     <audio id="myAudio" loop>
         <source src="assets/janji_suci.mp3" type="audio/mpeg"> 
+        Browser Anda tidak mendukung elemen audio.
     </audio>
+    
     <script>
+        // Fungsi memicu scroll dan audio saat tombol cover diklik
         function openUndangan() {
+            // Coba putar audio, tangani jika browser memblokir autoplay
             document.getElementById('myAudio').play().catch(e => console.log("Audio play prevented: ", e)); 
             document.getElementById('intro').scrollIntoView({ behavior: 'smooth' });
             document.getElementById('cover').style.display = 'none'; // Sembunyikan cover
         }
+
+        // Logic IntersectionObserver untuk Fade-in dan Slide-in
+        document.addEventListener("DOMContentLoaded", function() {
+            const animatedElements = document.querySelectorAll('.section-content, .anim-slide');
+
+            const observerOptions = {
+                root: null, 
+                rootMargin: '0px',
+                threshold: 0.1 // Elemen terlihat 10% sudah aktif
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
     </script>
 
 
     <div class="undangan-container">
         <section id="cover" class="section-full">
-            <p style="font-size: 1.2em;">The Wedding of</p>
-            <h1>SUANDIKA & RESA</h1>
-            <p style="font-size: 1.1em; margin-bottom: 40px;">Minggu, 07 Desember 2025</p>
-            
-            <button onclick="openUndangan()">
-                Buka Undangan
-            </button>
-            <p style="margin-top: 20px; font-size: 0.9em;">Kepada Yth. Tamu Undangan</p>
+            <div class="cover-overlay">
+                <p style="font-size: 1.2em;">The Wedding of</p>
+                <h1>SUANDIKA & RESA</h1>
+                <p style="font-size: 1.1em; margin-bottom: 40px;">Minggu, 07 Desember 2025</p>
+                
+                <button onclick="openUndangan()">
+                    Buka Undangan
+                </button>
+                <p style="margin-top: 20px; font-size: 0.9em;">Kepada Yth. Tamu Undangan</p>
+            </div>
         </section>
 
         <section id="intro" class="section-content">
-            <h2>Bismillahirrahmannirrahiim</h2>
-            <p class="quote">
+            <h2 class="anim-slide">Bismillahirrahmannirrahiim</h2>
+            <p class="quote anim-slide" style="transition-delay: 0.2s;">
                 "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."
                 <br>
                 <small>(Q.S. Ar-Rum: 21)</small>
             </p>
-            <p>Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu.</p>
+            <p class="anim-slide" style="transition-delay: 0.4s;">Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu.</p>
         </section>
 
         <section id="mempelai" class="section-content">
-            <h2>Mempelai yang Berbahagia</h2>
-            <div class="pasangan">
+            <h2 class="anim-slide">Mempelai yang Berbahagia</h2>
+            <div class="pasangan anim-slide" style="transition-delay: 0.2s;">
                 <h3>SUANDIKA SUDIRO</h3>
                 <p>Putra dari Bapak [Nama Ayah Pria] dan Ibu [Nama Ibu Pria]</p>
             </div>
-            <p class="separator">&</p>
-            <div class="pasangan">
+            <p class="separator anim-slide" style="transition-delay: 0.4s;">&</p>
+            <div class="pasangan anim-slide" style="transition-delay: 0.6s;">
                 <h3>RESA RISTIANI</h3>
                 <p>Putri dari Bapak [Nama Ayah Wanita] dan Ibu [Nama Ibu Wanita]</p>
             </div>
-             <p style="font-size: 0.8em; color: #888;">*(Silakan lengkapi nama orang tua)*</p>
         </section>
 
         <section id="acara" class="section-content">
-            <h2>IKRAR AKAD NIKAH</h2>
-            <div class="info-box">
+            <h2 class="anim-slide">IKRAR AKAD NIKAH</h2>
+            <div class="info-box anim-slide" style="transition-delay: 0.2s;">
                 <p style="font-size: 1.2em; font-weight: bold;">Minggu, 07 Desember 2025</p>
                 <p>Pukul 11.00 WIB - Selesai</p>
             </div>
-            <p class="lokasi" style="margin-top: 20px;">
+            <p class="lokasi anim-slide" style="margin-top: 20px; transition-delay: 0.4s;">
                 Kp. Genteng RT 04/RW 04, Desa Talagasari, Kec. Banjarwangi, Kab. Garut (Dekat MTS Assalam).
             </p>
-            <a href="https://maps.app.goo.gl/FcGhomUM6C6P1UZw6" target="_blank" class="button-map">
+            <a href="https://maps.app.goo.gl/FcGhomUM6C6P1UZw6" target="_blank" class="button-map anim-slide" style="transition-delay: 0.6s;">
                 Lihat Lokasi di Google Maps
             </a>
-            <p style="font-size: 0.8em; color: #888; margin-top: 5px;">*Pastikan link Google Maps berfungsi saat di-deploy.</p>
         </section>
         
         <section id="galeri" class="section-content">
-            <h2>Galeri Foto Pre-Wedding</h2>
+            <h2 class="anim-slide">Galeri Foto Pre-Wedding</h2>
             <div class="gallery-grid">
-                <img src="assets/photo1.jpg" alt="Foto Pre-Wedding 1" class="photo-item">
-                <img src="assets/photo2.jpg" alt="Foto Pre-Wedding 2" class="photo-item">
-                <img src="assets/photo3.jpg" alt="Foto Pre-Wedding 3" class="photo-item">
-                <img src="assets/photo4.jpg" alt="Foto Pre-Wedding 4" class="photo-item">
-                <img src="assets/photo5.jpg" alt="Foto Pre-Wedding 5" class="photo-item">
-                <img src="assets/photo6.jpg" alt="Foto Pre-Wedding 6" class="photo-item">
+                <img src="assets/photo1.jpg" alt="Foto Pre-Wedding 1" class="photo-item anim-slide" style="transition-delay: 0.1s;">
+                <img src="assets/photo2.jpg" alt="Foto Pre-Wedding 2" class="photo-item anim-slide" style="transition-delay: 0.2s;">
+                <img src="assets/photo3.jpg" alt="Foto Pre-Wedding 3" class="photo-item anim-slide" style="transition-delay: 0.3s;">
+                <img src="assets/photo4.jpg" alt="Foto Pre-Wedding 4" class="photo-item anim-slide" style="transition-delay: 0.4s;">
+                <img src="assets/photo5.jpg" alt="Foto Pre-Wedding 5" class="photo-item anim-slide" style="transition-delay: 0.5s;">
+                <img src="assets/photo6.jpg" alt="Foto Pre-Wedding 6" class="photo-item anim-slide" style="transition-delay: 0.6s;">
             </div>
-            <p class="catatan-galeri">Simpan momen indah kami!</p>
+            <p class="catatan-galeri anim-slide" style="transition-delay: 0.8s;">Simpan momen indah kami!</p>
         </section>
 
         <section id="hadiah" class="section-content">
-            <h2>Amplop Digital (Tanda Kasih)</h2>
-            <p>Doa restu Anda merupakan karunia tak ternilai. Namun, jika ingin memberikan tanda kasih:</p>
-            <div class="qr-info">
+            <h2 class="anim-slide">Amplop Digital (Tanda Kasih)</h2>
+            <p class="anim-slide" style="transition-delay: 0.2s;">Doa restu Anda merupakan karunia tak ternilai. Namun, jika ingin memberikan tanda kasih:</p>
+            <div class="qr-info anim-slide" style="transition-delay: 0.4s;">
                 <img src="assets/qris.png" alt="Kode QRIS" class="qris-img"> 
+                <p>Scan Kode QRIS di atas</p>
             </div>
             
-            <p style="margin-top: 30px;">-- Atau Transfer Bank --</p>
-            <p>
+            <p class="anim-slide" style="margin-top: 30px; transition-delay: 0.6s;">-- Atau Transfer Bank --</p>
+            <p class="anim-slide" style="transition-delay: 0.8s;">
                 **[Nama Bank]** <br> 
                 No. Rek. [Nomor Rekening Anda] <br>
                 a.n. [Nama Lengkap Mempelai]
             </p>
-            <p style="font-size: 0.8em; color: #888;">*(Silakan lengkapi detail Bank)*</p>
         </section>
 
         <section id="penutup" class="section-content">
-            <p>Merupakan suatu kehormatan bagi kami apabila Anda berkenan hadir.</p>
-            <h3 style="color: #333;">Hormat Kami,</h3>
-            <p class="tanda-tangan">Suandika & Resa</p>
+            <p class="anim-slide">Merupakan suatu kehormatan bagi kami apabila Anda berkenan hadir.</p>
+            <h3 class="anim-slide" style="color: #333; transition-delay: 0.2s;">Hormat Kami,</h3>
+            <p class="tanda-tangan anim-slide" style="transition-delay: 0.4s;">Suandika & Resa</p>
             <p style="font-size: 0.8em; margin-top: 30px;">*Backsound Musik: Yovie and Nuno - Janji Suci</p>
         </section>
     </div>

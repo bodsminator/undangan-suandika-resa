@@ -1,3 +1,4 @@
+/* --- BASE STYLES --- */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -14,8 +15,13 @@ body {
     box-shadow: 0 0 15px rgba(0,0,0,0.1);
 }
 
+/* --- COVER & PARALLAX --- */
 .section-full {
-    background-color: #5D7260; 
+    background-image: url('assets/bg-cover.jpg'); /* Efek Parallax */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     color: white;
     padding: 100px 20px;
     height: 100vh;
@@ -23,13 +29,18 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
-.section-content {
-    padding: 50px 20px;
-    border-bottom: 1px solid #eee;
+.cover-overlay {
+    position: relative;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.4); /* Overlay gelap */
+    padding: 40px;
+    border-radius: 10px;
 }
 
+/* --- TEMA & TIPOGRAFI --- */
 h1 {
     font-family: 'Georgia', serif; 
     font-size: 3.5em;
@@ -38,15 +49,20 @@ h1 {
 }
 
 h2 {
-    color: #5D7260; 
+    color: #5D7260; /* Warna Tema Hijau Zaitun */
     margin-bottom: 30px;
     border-bottom: 2px solid #5D7260;
     padding-bottom: 5px;
     display: inline-block;
 }
 
+.section-content {
+    padding: 50px 20px;
+    border-bottom: 1px solid #eee;
+}
+
 .button-map, button {
-    background-color: #C06C84; 
+    background-color: #C06C84; /* Warna Aksen Tombol Merah Muda */
     color: white;
     padding: 12px 25px;
     border: none;
@@ -58,40 +74,10 @@ h2 {
     transition: background-color 0.3s;
 }
 
-.button-map:hover, button:hover {
-    background-color: #A35870;
-}
-
-.quote {
-    font-style: italic;
-    margin: 20px 0;
-    line-height: 1.6;
-}
-
-.separator {
-    font-size: 2em;
-    margin: 10px 0;
-    color: #aaa;
-}
-
-.qris-img {
-    width: 200px;
-    height: 200px;
-    object-fit: contain;
-    margin: 20px auto;
-    border: 1px solid #ddd;
-}
-
-.tanda-tangan {
-    font-family: 'Times New Roman', serif;
-    font-size: 1.8em;
-    margin-top: 20px;
-}
-
-/* --- CSS untuk Galeri Foto --- */
+/* --- GALERI & QRIS --- */
 .gallery-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* 2 kolom default */
+    grid-template-columns: 1fr 1fr;
     gap: 15px;
     margin-top: 30px;
 }
@@ -104,16 +90,40 @@ h2 {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.catatan-galeri {
-    margin-top: 30px;
-    font-size: 0.9em;
-    color: #888;
+.qris-img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    margin: 20px auto;
+    border: 1px solid #ddd;
 }
 
-/* Responsif */
+/* --- ANIMASI FADE-IN & SLIDE-IN (Initial State) --- */
+.section-content, .anim-slide {
+    opacity: 0; /* Semua elemen mulai tersembunyi */
+    transform: translateY(20px); /* Semua elemen mulai sedikit di bawah */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* --- ANIMASI FADE-IN & SLIDE-IN (Final State) --- */
+.section-content.is-visible, .anim-slide.is-visible {
+    opacity: 1; /* Saat terlihat, menjadi penuh */
+    transform: translateY(0); /* Kembali ke posisi semula */
+}
+
+/* Tambahan: Transisi Khusus untuk Judul */
+h2.anim-slide {
+    transform: translateX(-20px); /* Judul mulai dari kiri */
+}
+.section-content.is-visible h2.anim-slide {
+    transform: translateX(0);
+}
+
+
+/* --- RESPONSIVE --- */
 @media (min-width: 600px) {
     .gallery-grid {
-        grid-template-columns: 1fr 1fr 1fr; /* 3 kolom di layar lebar */
+        grid-template-columns: 1fr 1fr 1fr;
     }
     .photo-item {
         height: 120px;
